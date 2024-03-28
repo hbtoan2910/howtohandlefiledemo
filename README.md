@@ -1,4 +1,4 @@
-# howtohandlefiledemo
+# HowToHandleFileInJava
 
 ## A small java app to demonstrate how handle files (create file, folder (directory), copy, & rename)
 
@@ -10,3 +10,8 @@
   2/ Rename files from this location to other location, and we better make a copy of these files to new folder before renaming.
 
      Method: file.renameTo() will give the origin files new names and move them (with their new names) to other location, which means, in current folder, origin files are no longer there.
+
+
+#### Note:
+
+Về cơ bản, để đọc/ghi file binary( file ảnh, phim…) nên dùng InputStream/OutputStream (Byte Stream), còn đọc/ghi file text (txt) nên dùng FileReader/FileWriter (Character Stream)
