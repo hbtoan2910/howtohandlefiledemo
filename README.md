@@ -16,8 +16,6 @@
 
 Về cơ bản:
 
-  1/ để đọc/ghi file binary( file ảnh, phim…) nên dùng FileInputStream/FileOutputStream (Byte Stream)
-  
-     Ngoài ra, ByteArrayInputStream/ByteArrayOutputStream và DataInputStream/DataOutputStream cũng thuộc (Byte Stream)
+  1/ để đọc/ghi file binary (file ảnh, âm thanh, phim ...) nên dùng FileInputStream/FileOutputStream (Byte Stream). Ngoài ra, ByteArrayInputStream/ByteArrayOutputStream và DataInputStream/DataOutputStream cũng thuộc (Byte Stream)
   
   2/ để đọc/ghi file text (txt) nên dùng FileReader/FileWriter (Character Stream)
