@@ -13,25 +13,69 @@ public class FileHandle {
 	
 	public static void main(String[] args) {
 		
-//        try (FileInputStream input = new FileInputStream("./src/test/abs workout.mp4");
-//             FileOutputStream output = new FileOutputStream("./src/test/copy.mp4")) {
-//
-//            int c;
-//            while ((c = input.read()) != -1) {
-//                output.write(c);
-//            }
-//
-//            System.out.println("Done writing data to output file.");
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
+		/**** 1. Copy a text file into new text file using fileInputStream & fileOutputStream ****/	
+        /*
+		try (FileInputStream input = new FileInputStream("./src/input.txt");
+             FileOutputStream output = new FileOutputStream("./src/output.txt")) {
+
+            int c;
+            // Đọc lần lượt các byte (8bit) trong luồng và lưu vào biến c
+            // Khi đọc ra giá trị -1 nghĩa là kết thúc luồng.
+            while ((c = input.read()) != -1) {
+            	System.out.println("value of c: " + c + " <> " + (char)c);
+                output.write(c);
+            }
+
+            System.out.println("Done writing data to output file.");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        */
 		
+		try (FileInputStream input = new FileInputStream("./src/input.txt");
+	             FileOutputStream output = new FileOutputStream("./src/output.txt")) {
+
+	            int c;
+	            byte[] bytes = new byte[10]; //This creates a new array with a length of 10 bytes. Each element in the array can hold a byte of data.
+	            
+	         // Tại 1 thời điểm đọc 10 bytes
+	            while ((c = input.read(bytes)) != -1) {
+	            	System.out.println("value of c: " + c);
+	            	System.out.println(new String(bytes,0,c));
+	                output.write(bytes,0,c);
+	            }
+
+	            System.out.println("Done writing data to output file.");
+	        } catch (IOException e) {
+	            e.printStackTrace();
+	        }
+		
+		
+        /**** 2. Copy a video file (mp4) into new video file using fileInputStream & fileOutputStream ****/
+        /*
+        try (FileInputStream input = new FileInputStream("./src/abs_workout.mp4");
+                FileOutputStream output = new FileOutputStream("./src/abs_workout_copy.mp4")) {
+
+               int c;
+               // Đọc lần lượt các byte (8bit) trong luồng và lưu vào biến c
+               // Khi đọc ra giá trị -1 nghĩa là kết thúc luồng.
+               while ((c = input.read()) != -1) {
+               	System.out.println("value of c: " + c + " <> " + (char)c);
+                   output.write(c);
+               }
+
+               System.out.println("Done writing data to output file.");
+           } catch (IOException e) {
+               e.printStackTrace();
+           }
+        */
+        
 		File myFolder = new File("./src/storage/inputFolder");		
 		File copyToFolder = new File("./src/storage/copyToFolder");
 		File renameToFolder = new File("./src/storage/renameToFolder");
 		File archiveFolder = new File("./src/storage/archiveFolder");
 		
-		/**** 1. Copy files From-To section - quite slow speed if using input/output stream, in real should use Files.copy() ****/	
+		/**** 3. Copy files From-To section - quite slow speed if using input/output stream, in real should use Files.copy() ****/	
 		/*
 		try {
 			if (myFolder.exists() && myFolder.isDirectory()) {
@@ -82,7 +126,8 @@ public class FileHandle {
 		
 
 		
-		/**** 2. Rename files From-To section ****/
+		/**** 4. Rename files From-To section ****/
+		/*
 		try {
 			if (myFolder.exists() && myFolder.isDirectory()) {
 				if (!renameToFolder.exists()) {
@@ -122,8 +167,7 @@ public class FileHandle {
 								
 						} else {
 							System.out.println("No file to process");
-						}
-					
+						}					
 					}
 				}
 			} else {
@@ -133,5 +177,6 @@ public class FileHandle {
 			System.out.println("Error occurred while creating directory or listing files.");
 			e.printStackTrace();
 		}
+		*/
     }
 }
