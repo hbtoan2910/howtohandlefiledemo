@@ -32,6 +32,7 @@ public class FileHandle {
         }
         */
 		
+		/*
 		try (FileInputStream input = new FileInputStream("./src/input.txt");
 	             FileOutputStream output = new FileOutputStream("./src/output.txt")) {
 
@@ -49,7 +50,7 @@ public class FileHandle {
 	        } catch (IOException e) {
 	            e.printStackTrace();
 	        }
-		
+		*/
 		
         /**** 2. Copy a video file (mp4) into new video file using fileInputStream & fileOutputStream ****/
         /*
